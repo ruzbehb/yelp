@@ -27,7 +27,9 @@ gem 'turbolinks'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 1.2'
 
-gem 'twitter-bootstrap-rails'
+gem 'twitter-bootstrap-rails',
+    github: 'seyhunak/twitter-bootstrap-rails',
+    branch: 'bootstrap3'
 
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.
@@ -36,6 +38,11 @@ end
 
 group :development, :test do
 	gem 'rspec-rails'
+	gem 'capybara', '~> 2.1'
+	gem 'shoulda-matchers'
+	gem 'poltergeist'
+  gem 'database_cleaner'
+  gem "factory_girl_rails"
 end
 
 # Use ActiveModel has_secure_password
