@@ -14,7 +14,6 @@
 		/caption -->
 
 		<p>
-		<p>
 		<% @reviews = restaurant.reviews.all %>
 		<% @sum_of_ratings = 0 %>
 		<% @count = 0 %>
@@ -22,17 +21,29 @@
 			<% @sum_of_ratings += review.rating %>
 			<% @count += 1 %>
 		<% end %>
+	</p>
 
 		<% if (@count > 0) %>
-			Overall User Rating: <%= @sum_of_ratings/@count %>/5 
+			 <% avg_rating = @sum_of_ratings/@count %>
+			 <% @counter = 1 %>
+			 <% while (@counter != avg_rating+1) %>
+			 		<div class='star solid'>&#9733;</div>
+			 		<% @counter += 1 %>
+			 	<% end %>
+			 <% while (@counter < 6) %>
+			 		<div class='star hollow'>&#9734;</div>
+			 		<% @counter += 1 %>
+			 	<% end %>
+			 	<p>
 		<% end %>
-
+		<p> </p>
 		 <% @reviews.each do |review| %>
-			<p>
 			<%= review.body %> <%= review.rating %>/5
+			<div class='creation'>
+			created at <%= review.created_at %>
 			<p>
-			<i> created at <%= review.created_at %> </i>
-		<% end %> </p>
+			</div>
+		<% end %> 
 		
 		<p>
 			<%= link_to "Add Review", new_restaurant_review_path(restaurant) %></p>
