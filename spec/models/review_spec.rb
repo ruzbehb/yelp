@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe Restaurant do
+describe Review do
+  it { should belong_to :restaurant }
   it { should belong_to :user }
-  it { should have_many :reviews }
 end

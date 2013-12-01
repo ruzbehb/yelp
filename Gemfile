@@ -42,8 +42,10 @@ group :development, :test do
 	gem 'shoulda-matchers'
 	gem 'poltergeist'
   gem 'database_cleaner'
-  gem "factory_girl_rails"
+  gem 'factory_girl_rails'
 end
+
+gem 'devise'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.1.2'

@@ -1,0 +1,12 @@
+<%= form_for([@restaurant, @restaurant.reviews.build]) do |f| %>
+	<h2>Add Review for <%= @restaurant.name %></h2>
+	<p>
+	<%= f.label :"Rating out of 5" %>
+	<%= f.text_field :rating %>
+	<p>
+	<%= f.label :"Review:" %>
+	<%= f.text_field :"body" %>	
+	<p>
+	<%= f.submit :"Submit Review" %>
+
+<% end %>

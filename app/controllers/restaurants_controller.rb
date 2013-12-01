@@ -1,7 +1,10 @@
 class RestaurantsController < ApplicationController
 
+	before_action :authenticate_user!, except: [:index, :show]
+
 	def index
 		@restaurants = Restaurant.all
+		
 	end
 
 	def new
@@ -10,6 +13,7 @@ class RestaurantsController < ApplicationController
 
 	def create
 		@restaurant = Restaurant.create(params[:restaurant].permit(:name, :body))
+		flash[:notice] = "Restaurant added"
 		redirect_to restaurants_path		
 	end
 
