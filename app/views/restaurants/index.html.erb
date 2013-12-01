@@ -7,14 +7,25 @@
 	<div class='col-md-4'>
 		<h3><%= restaurant.name %> </h3>
 		<p><h4><%= restaurant.body %></h4></p>
-		<!-- created by: %= restaurant.user.email if restaurant.user.email % -->
+		
+		<!-- caption
+		% @user = User.find(user_id, restaurant.user_id) %
+			created by: %= @user.email if @user.email %
+		/caption -->
+
+		<p>
 		<p>
 		<% @reviews = restaurant.reviews.all %>
 		 <% @reviews.each do |review| %>
 			<p>
-			<%= review.body %>
-		<% end %> 
-		<p><%= link_to "Add Review", new_restaurant_review_path(restaurant) %></p>
+			<%= review.body %> 
+			<p>
+			<i> created at <%= review.created_at %> </i>
+		<% end %> </p>
+		
+		<p>
+			<%= link_to "Add Review", new_restaurant_review_path(restaurant) %></p>
+
 	</div>
 <% end %>
 
