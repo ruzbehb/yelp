@@ -3,8 +3,8 @@ class ReviewsController < ApplicationController
 	before_action :authenticate_user!
 
 	def new
-		@restaurant = Restaurant.find(params[:restaurant_id])
-		@review = @restaurant.reviews.new
+		# restaurant = Restaurant.find()
+		@review = Review.new(restaurant_id: params[:restaurant_id])
 	end
 
 	def create

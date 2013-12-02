@@ -1,5 +1,5 @@
-<%= form_for([@restaurant, @restaurant.reviews.build]) do |f| %>
-	<h2>Add Review for <%= @restaurant.name %></h2>
+<%= form_for([@review.restaurant, @review]) do |f| %>
+	<h2>Add Review for <%= @review.restaurant.name %></h2>
 	<p>
 	<%= f.label :"Rating out of 5" %>
 	<%= f.text_field :rating %>

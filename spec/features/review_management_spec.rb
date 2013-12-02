@@ -30,8 +30,8 @@ describe 'review management' do
 
 		it 'shows review for a restaurant on the index page' do
 			visit new_restaurant_review_path(@restaurant)
-			fill_in :rating, with: 2
-			fill_in :body, with: "Reasonable prices but poor service"
+			fill_in :review_rating, with: 2
+			fill_in :review_body, with: "Reasonable prices but poor service"
 			click_button :"Submit Review"
 			visit '/'
 			expect(page).to have_content "Reasonable prices but poor service"

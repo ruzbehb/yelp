@@ -4,7 +4,7 @@ class RestaurantsController < ApplicationController
 
 	def index
 		@restaurants = Restaurant.all
-		
+
 	end
 
 	def new
@@ -12,7 +12,7 @@ class RestaurantsController < ApplicationController
 	end
 
 	def create
-		@restaurant = Restaurant.create(params[:restaurant].permit(:name, :body))
+		@restaurant = Restaurant.create(params[:restaurant].permit(:name, :body, :user_id))
 		flash[:notice] = "Restaurant added"
 		redirect_to restaurants_path		
 	end
